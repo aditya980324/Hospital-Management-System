@@ -1,6 +1,6 @@
 import com.aventstack.extentreports.Status;
 import hc.hms.base.HMSBase;
-import hc.hms.thread.ThreadLocalUtilty;
+import hc.hms.thread.ThreadLocalUtility;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -19,44 +19,44 @@ public class UserTest extends HMSBase {
         String time=eU.getExcelData("Sheet1",5,1);
         // open user login page
         wDU.openUrl(patientLoginUrl);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"User Login Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"User Login Page is Displayed");
         // login as user
         pLP.loginAsUser(userEmail,userPassword);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged In as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged In as User");
         // click on book appointment link
         uDP.getBookAppointmentLink().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Book Appointments Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Book Appointments Page is Displayed");
         // select doctors specialization
         wDU.selectElementByText(uBAP.getDoctorSpecializationDrpDwn(),doctorSpecialization);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Doctor Specialization is Selected");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Specialization is Selected");
         // select the doctor of the specialization
         wDU.selectElementByText(uBAP.getDoctorsDrpDwn(),doctorName);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Doctor Name is Selected");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Name is Selected");
         // enter the date
         uBAP.getDateTxtFld().sendKeys(date);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Date is Entered in Date TextField");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Date is Entered in Date TextField");
         // clear the time text field
         uBAP.getTimeTxtFld().clear();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Time TextField is Cleared");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Time TextField is Cleared");
         // enter the time
         uBAP.getTimeTxtFld().sendKeys(time);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Time is Entered in Time TextField");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Time is Entered in Time TextField");
         // click on submit button
         uBAP.getSubmitBtn().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Submit Button is Clicked");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Submit Button is Clicked");
         // wait for alert
         wDU.waitForAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Wait for Alert");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Wait for Alert");
         // verify the alert text
         String text= wDU.getAlertText();
         Assert.assertEquals(text,"Your appointment successfully booked");
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Alert Text is Verified");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Alert Text is Verified");
         // handle the alert
         wDU.acceptAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Alert is Handled");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Alert is Handled");
         // logout as user
         uDP.logoutAsUser();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged Out as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged Out as User");
     }
     @Test(groups = "integration")
     public void appointmentHistoryTest() {
@@ -69,47 +69,47 @@ public class UserTest extends HMSBase {
         String time=eU.getExcelData("Sheet1",5,1);
         // open user login page
         wDU.openUrl(patientLoginUrl);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"User Login Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"User Login Page is Displayed");
         // login as user
         pLP.loginAsUser(userEmail,userPassword);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged In as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged In as User");
         // click on book appointment link
         uDP.getBookAppointmentLink().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Book Appointments Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Book Appointments Page is Displayed");
         // select doctors specialization
         wDU.selectElementByText(uBAP.getDoctorSpecializationDrpDwn(),doctorSpecialization);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Doctor Specialization is Selected");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Specialization is Selected");
         // select the doctor of the specialization
         wDU.selectElementByText(uBAP.getDoctorsDrpDwn(),doctorName);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Doctor Name is Selected");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Name is Selected");
         // enter the date
         uBAP.getDateTxtFld().sendKeys(date);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Date is Entered in Date TextField");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Date is Entered in Date TextField");
         // clear the time text field
         uBAP.getTimeTxtFld().clear();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Time TextField is Cleared");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Time TextField is Cleared");
         // enter the time
         uBAP.getTimeTxtFld().sendKeys(time);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Time is Entered in Time TextField");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Time is Entered in Time TextField");
         // click on submit button
         uBAP.getSubmitBtn().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Submit Button is Clicked");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Submit Button is Clicked");
         // wait for alert
         wDU.waitForAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Wait for Alert");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Wait for Alert");
         // handle the alert
         wDU.acceptAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Alert is Handled");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Alert is Handled");
         // click on appointment history
         uDP.getAppointmentHistoryLink().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Appointment History Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Appointment History Page is Displayed");
         // verify the appointment history
         String appointmentListText=uAHP.getAppointmentHistoryList().getText();
         Assert.assertEquals(appointmentListText,"Active");
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Appointment History Page is Verified");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Appointment History Page is Verified");
         // logout as user
         uDP.logoutAsUser();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged Out as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged Out as User");
     }
     @Test(groups = "integration")
     public void cancelAppointmentTest() {
@@ -118,29 +118,29 @@ public class UserTest extends HMSBase {
         String userPassword=eU.getExcelData("Sheet1",1,4);
         // open user login page
         wDU.openUrl(patientLoginUrl);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"User Login Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"User Login Page is Displayed");
         // login as user
         pLP.loginAsUser(userEmail,userPassword);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged In as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged In as User");
         // click on appointment history
         uDP.getAppointmentHistoryLink().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Appointment History Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Appointment History Page is Displayed");
         // cancel an appointment
         uAHP.getCancelButton().click();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Cancel an Appointment");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Cancel an Appointment");
         // wait for alert
         wDU.waitForAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Wait for Alert");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Wait for Alert");
         // handle the alert
         wDU.acceptAlert();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Confirmation Alert is Accepted");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Confirmation Alert is Accepted");
         // verify the cancellation message
         String msg=uAHP.getAppointmentCancellationText().getText();
         Assert.assertEquals(msg,"Your appointment canceled !!");
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Appointment Confirmation Message is Verified");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Appointment Confirmation Message is Verified");
         // logout as user
         uDP.logoutAsUser();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged Out as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged Out as User");
     }
     @Test(groups = "smoke")
     public void userLoginFunctionalityTest() {
@@ -149,12 +149,12 @@ public class UserTest extends HMSBase {
         String userPassword=eU.getExcelData("Sheet1",1,4);
         // open user login page
         wDU.openUrl(patientLoginUrl);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"User Login Page is Displayed");
+        ThreadLocalUtility.getTest().log(Status.INFO,"User Login Page is Displayed");
         // login as user
         pLP.loginAsUser(userEmail,userPassword);
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged In as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged In as User");
         // logout as user
         uDP.logoutAsUser();
-        ThreadLocalUtilty.getTest().log(Status.INFO,"Logged Out as User");
+        ThreadLocalUtility.getTest().log(Status.INFO,"Logged Out as User");
     }
 }

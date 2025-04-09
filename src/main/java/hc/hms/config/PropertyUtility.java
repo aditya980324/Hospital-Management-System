@@ -2,7 +2,7 @@ package hc.hms.config;
 
 
 import com.aventstack.extentreports.Status;
-import hc.hms.thread.ThreadLocalUtilty;
+import hc.hms.thread.ThreadLocalUtility;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class PropertyUtility {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //ThreadLocalUtilty.getTest().log(Status.INFO,"Data fetched from Property file is "+data);
+        //ThreadLocalUtility.getTest().log(Status.INFO,"Data fetched from Property file is "+data);
         return data;
     }
 }

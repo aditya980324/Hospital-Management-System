@@ -1,6 +1,6 @@
 package hc.hms.webdriver;
 
-import hc.hms.thread.ThreadLocalUtilty;
+import hc.hms.thread.ThreadLocalUtility;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -45,7 +45,7 @@ public class WebDriverUtility {
             opt.addArguments("--disable-notifications-");
             driver=new ChromeDriver(opt);
         }
-        ThreadLocalUtilty.setDriver(driver);
+        ThreadLocalUtility.setDriver(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(12));
         act=new Actions(driver);
