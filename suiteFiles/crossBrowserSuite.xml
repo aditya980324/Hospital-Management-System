@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel Execution Suite" parallel="tests" thread-count="4">
+    <test preserve-order="true" name="Test Runner-1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="AdminDoctorTest"/>
+            <class name="DoctorTest"/>
+        </classes>
+    </test>
+    <test preserve-order="true" name="Test Runner-2">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="UserDoctorTest"/>
+            <class name="UserTest"/>
+        </classes>
+    </test>
+</suite>
