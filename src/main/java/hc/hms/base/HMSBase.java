@@ -20,7 +20,7 @@ public class HMSBase {
     public SoftAssert softAssert = new SoftAssert();
 
     // URLs and config
-    String browser = System.getProperty("browser", pU.getPropertyData("browser"));
+    //String browser = System.getProperty("browser", pU.getPropertyData("browser"));
     String url = System.getProperty("url", pU.getPropertyData("url"));
     public String patientLoginUrl = pU.getPropertyData("patientLoginUrl");
     public String doctorLoginPageUrl = pU.getPropertyData("doctorLoginPageUrl");
@@ -40,8 +40,9 @@ public class HMSBase {
     public UserBookAppointmentsPage uBAP;
     public UserDashboardPage uDP;
 
+    @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
-    public void setUp() {
+    public void setUp(@Optional("chrome") String browser) {
         WebDriver driver = wDU.getDriver(browser); // get driver
         ThreadLocalUtility.setDriver(driver);      // store it in ThreadLocal
 

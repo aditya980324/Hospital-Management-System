@@ -77,7 +77,6 @@ public class AdminDoctorTest extends HMSBase {
         ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Dashboard Page is Displayed");
         // verifying the doctor dashboard page
         String pageTitle= wDU.getPageTitle();
-        System.out.println(pageTitle);
         Assert.assertEquals(pageTitle,"Doctor | Dashboard");
         ThreadLocalUtility.getTest().log(Status.INFO,"Doctor Dashboard Page is Verified");
         // logout as doctor
